@@ -43,11 +43,12 @@
                         android:layout_height="40dp"
                         android:src="@drawable/ic_baseline_close_24"
                         android:layout_marginEnd="10dp"
+                        android:onClick="endExam"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView"
+                        android:id="@+id/quiz_name_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="30dp"
@@ -81,6 +82,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/question_index"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="01 "
@@ -90,6 +92,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/total_questions"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="/11"
@@ -101,6 +104,7 @@
                 </LinearLayout>
 
                 <ProgressBar
+                    android:id="@+id/progress_questions"
                     style="@android:style/Widget.ProgressBar.Horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"
@@ -184,8 +188,10 @@
                                 >
 
                                 <RelativeLayout
+                                    android:id="@+id/optionL1"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:onClick="selectOption1"
                                     android:layout_marginBottom="10dp"
                                     android:background="@drawable/option_background"
                                     android:padding="10dp">
@@ -203,15 +209,18 @@
                                         android:id="@+id/radio_option_1"
                                         android:layout_width="30dp"
                                         android:layout_height="20dp"
+                                        android:onClick="selectOption1"
                                         android:layout_alignParentEnd="true"/>
 
                                 </RelativeLayout>
 
 
                                 <RelativeLayout
+                                    android:id="@+id/optionL2"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginBottom="10dp"
+                                    android:onClick="selectOption2"
                                     android:background="@drawable/option_background"
                                     android:padding="10dp">
 
@@ -228,14 +237,17 @@
                                         android:id="@+id/radio_option_2"
                                         android:layout_width="30dp"
                                         android:layout_height="20dp"
+                                        android:onClick="selectOption2"
                                         android:layout_alignParentEnd="true"/>
 
                                 </RelativeLayout>
 
 
                                 <RelativeLayout
+                                    android:id="@+id/optionL3"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
+                                    android:onClick="selectOption3"
                                     android:background="@drawable/option_background"
                                     android:layout_marginBottom="10dp"
                                     android:padding="10dp">
@@ -253,15 +265,18 @@
                                         android:id="@+id/radio_option_3"
                                         android:layout_width="30dp"
                                         android:layout_height="20dp"
+                                        android:onClick="selectOption3"
                                         android:layout_alignParentEnd="true"/>
 
                                 </RelativeLayout>
 
 
                                 <RelativeLayout
+                                    android:id="@+id/optionL4"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginBottom="10dp"
+                                    android:onClick="selectOption4"
                                     android:background="@drawable/option_background"
                                     android:padding="10dp">
 
@@ -278,6 +293,7 @@
                                         android:id="@+id/radio_option_4"
                                         android:layout_width="30dp"
                                         android:layout_height="20dp"
+                                        android:onClick="selectOption4"
                                         android:layout_alignParentEnd="true"/>
 
                                 </RelativeLayout>
@@ -304,6 +320,7 @@
                         android:paddingStart="30dp"
                         android:paddingEnd="30dp"
                         android:paddingTop="10dp"
+                        android:onClick="prev"
                         android:layout_marginEnd="2dp"
                         android:paddingBottom="10dp">
 
@@ -325,9 +342,11 @@
                         android:paddingStart="30dp"
                         android:paddingEnd="30dp"
                         android:paddingTop="10dp"
+                        android:onClick="next"
                         android:paddingBottom="10dp">
 
                         <TextView
+                            android:id="@+id/next_btn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="end"
