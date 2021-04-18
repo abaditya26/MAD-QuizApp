@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "357963924066",
+    "project_id": "mad-quizapplication",
+    "storage_bucket": "mad-quizapplication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357963924066:android:47a4b81991f725f7d9873b",
+        "android_client_info": {
+          "package_name": "team.projects.madquizapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357963924066-9c06q641ljdmgd1jb44qtps4virm9l9e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "team.projects.madquizapplication",
+            "certificate_hash": "f10c714ec77575645ad52e77a75ee23baa732746"
+          }
+        },
+        {
+          "client_id": "357963924066-biedgcamvefn390lhnl8dvj75r7uoaem.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPzPvMgy3PHEUaBfj-aIRxdBQwoJZfZpE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357963924066-biedgcamvefn390lhnl8dvj75r7uoaem.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    tools:context=".Admin.ViewQuestionDetailsActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/question_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="QUESTION WILL BE DISPLAYED HERE"
+                
+                android:textStyle="bold"
+                android:layout_margin="10dp"
+                android:textSize="24sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="?attr/colorOnSecondary"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="1dp"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="?attr/colorOnSecondary"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                />
+
+            <TextView
+                android:id="@+id/option_1_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:textSize="20sp"
+                android:layout_margin="10dp"
+                android:text="OPTION 1 WILL BE DISPLAYED HERE"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="?attr/colorOnSecondary"
+                android:layout_margin="10dp"
+                />
+
+            <TextView
+                android:id="@+id/option_2_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:textSize="20sp"
+                android:layout_margin="10dp"
+                android:text="OPTION 2 WILL BE DISPLAYED HERE"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="?attr/colorOnSecondary"
+                android:layout_margin="10dp"
+                />
+
+            <TextView
+                android:id="@+id/option_3_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:textSize="20sp"
+                android:layout_margin="10dp"
+                android:text="OPTION 3 WILL BE DISPLAYED HERE"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="?attr/colorOnSecondary"
+                android:layout_margin="10dp"
+                />
+
+            <TextView
+                android:id="@+id/option_4_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                
+                android:textSize="20sp"
+                android:layout_margin="10dp"
+                android:text="OPTION 4 WILL BE DISPLAYED HERE"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="?attr/colorOnSecondary"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="1dp"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="?attr/colorOnSecondary"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--                Operations -->
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
