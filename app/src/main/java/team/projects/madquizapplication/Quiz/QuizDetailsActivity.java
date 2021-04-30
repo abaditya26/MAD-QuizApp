@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +21,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Objects;
+
 import team.projects.madquizapplication.Models.ModelQuizData;
 import team.projects.madquizapplication.R;
 
@@ -34,6 +37,8 @@ public class QuizDetailsActivity extends AppCompatActivity {
     boolean isAttempted = false;
     private String quizPassword;
 
+    ProgressDialog progressDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,12 +51,18 @@ public class QuizDetailsActivity extends AppCompatActivity {
             return;
         }
 
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Loading");
+        progressDialog.setMessage("Fetching data.");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
         quizIdView = findViewById(R.id.quiz_details_id);
         quizNameView = findViewById(R.id.quiz_details_name);
         quizAuthorView = findViewById(R.id.quiz_details_author_name);
 
         reference = FirebaseDatabase.getInstance().getReference();
-        reference.child("OldQuiz").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+        reference.child("OldQuiz").child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.hasChild(quizId)){
@@ -61,13 +72,14 @@ public class QuizDetailsActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(QuizDetailsActivity.this, "Error => "+error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
         reference.child("Quiz").child(quizId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ModelQuizData  quizData = snapshot.getValue(ModelQuizData.class);
+                progressDialog.dismiss();
                 if ((quizData != null ? quizData.getAuthorName() : null) !=null){
                     setView(quizData);
                     return;
@@ -79,6 +91,7 @@ public class QuizDetailsActivity extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError error) {
                 Toast.makeText(QuizDetailsActivity.this, "Error to get quiz Data", Toast.LENGTH_SHORT).show();
                 finish();
+                progressDialog.dismiss();
             }
         });
     }
@@ -119,10 +132,10 @@ public class QuizDetailsActivity extends AppCompatActivity {
                             return;
                         }
                         if (password.getText().toString().equalsIgnoreCase(quizPassword)){
+                            dialog.dismiss();
                             Intent intent = new Intent(this, QuizActivity.class);
                             intent.putExtra("QUIZID",quizId);
                             startActivity(intent);
-                            dialog.dismiss();
                             finish();
                         }else{
                             Toast.makeText(this, "Invalid Password", Toast.LENGTH_SHORT).show();

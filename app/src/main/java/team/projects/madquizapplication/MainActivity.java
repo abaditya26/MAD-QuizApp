@@ -107,17 +107,19 @@ public class MainActivity extends AppCompatActivity {
 
         oldQuizData = new ArrayList<>();
 
-        reference.child("Users").child(auth.getCurrentUser().getUid()).child("AttemptedQuizs").addValueEventListener(new ValueEventListener() {
+        reference.child("Users").child(auth.getCurrentUser().getUid()).child("AttemptedQuiz").addValueEventListener(new ValueEventListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 oldQuizData = new ArrayList<>();
 
                 for (DataSnapshot snapshot1:snapshot.getChildren()){
-                    ModelQuizData quizData = snapshot1.getValue(ModelQuizData.class);
-                    if ((quizData != null ? quizData.getQuizName() : null) !=null){
-                        oldQuizData.add(quizData);
-                    }
+                    try{
+                        ModelQuizData quizData = snapshot1.getValue(ModelQuizData.class);
+                        if ((quizData != null ? quizData.getQuizName() : null) !=null){
+                            oldQuizData.add(quizData);
+                        }
+                    }catch (Exception ignored){}
                 }
 
                 try {
@@ -179,5 +181,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void manageQuiz(View view) {
         startActivity(new Intent(this, ManageQuizActivity.class));
+    }
+
+    public void openProfile(View view) {
+        startActivity(new Intent(this, ProfileActivity.class));
     }
 }

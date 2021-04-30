@@ -2,6 +2,7 @@ package team.projects.madquizapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +19,7 @@ public class LoginActivity extends AppCompatActivity {
     TextView emailError, passwordError;
 
     FirebaseAuth auth;
-    DatabaseReference reference;
+    ProgressDialog progressDialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +32,10 @@ public class LoginActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
 
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Loading");
+        progressDialog.setMessage("Connecting to server...");
+        progressDialog.setCancelable(false);
 
     }
 
@@ -39,15 +44,20 @@ public class LoginActivity extends AppCompatActivity {
             return;
         }
 
+        progressDialog.show();
         auth.signInWithEmailAndPassword(emailInput.getText().toString(),passwordInput.getText().toString()).addOnCompleteListener(task -> {
             if (task.isSuccessful()){
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
                 finish();
             }
+            progressDialog.dismiss();
         }).addOnFailureListener(e -> {
             Toast.makeText(LoginActivity.this, "Error for login => " + e.getMessage(), Toast.LENGTH_SHORT).show();
             passwordError.setVisibility(View.VISIBLE);
             passwordError.setText("User Details Invalid");
+            try {
+                progressDialog.dismiss();
+            }catch (Exception ignored) {}
         });
     }
 

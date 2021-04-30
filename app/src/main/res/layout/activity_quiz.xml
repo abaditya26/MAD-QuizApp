@@ -196,21 +196,21 @@
                                     android:background="@drawable/option_background"
                                     android:padding="10dp">
 
-                                    <TextView
-                                        android:id="@+id/quiz_option1"
-                                        android:layout_width="wrap_content"
-                                        android:layout_height="wrap_content"
-                                        android:layout_alignParentStart="true"
-                                        android:layout_toStartOf="@+id/radio_option_1"
-                                        android:gravity="center"
-                                        android:text="OPTION" />
-
                                     <RadioButton
                                         android:id="@+id/radio_option_1"
                                         android:layout_width="30dp"
                                         android:layout_height="20dp"
-                                        android:onClick="selectOption1"
-                                        android:layout_alignParentEnd="true"/>
+                                        android:layout_alignParentStart="true"
+                                        android:onClick="selectOption1" />
+
+                                    <TextView
+                                        android:id="@+id/quiz_option1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_toEndOf="@+id/radio_option_1"
+                                        android:gravity="center"
+                                        android:text="OPTION" />
 
                                 </RelativeLayout>
 
@@ -228,8 +228,8 @@
                                         android:id="@+id/quiz_option2"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_alignParentStart="true"
-                                        android:layout_toStartOf="@+id/radio_option_2"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_toEndOf="@+id/radio_option_2"
                                         android:gravity="center"
                                         android:text="OPTION" />
 
@@ -238,7 +238,8 @@
                                         android:layout_width="30dp"
                                         android:layout_height="20dp"
                                         android:onClick="selectOption2"
-                                        android:layout_alignParentEnd="true"/>
+                                        android:layout_alignParentStart="true"
+                                        />
 
                                 </RelativeLayout>
 
@@ -256,8 +257,8 @@
                                         android:id="@+id/quiz_option3"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_alignParentStart="true"
-                                        android:layout_toStartOf="@+id/radio_option_3"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_toEndOf="@+id/radio_option_3"
                                         android:gravity="center"
                                         android:text="OPTION" />
 
@@ -266,7 +267,7 @@
                                         android:layout_width="30dp"
                                         android:layout_height="20dp"
                                         android:onClick="selectOption3"
-                                        android:layout_alignParentEnd="true"/>
+                                        android:layout_alignParentStart="true"/>
 
                                 </RelativeLayout>
 
@@ -284,8 +285,8 @@
                                         android:id="@+id/quiz_option4"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_alignParentStart="true"
-                                        android:layout_toStartOf="@+id/radio_option_4"
+                                        android:layout_alignParentEnd="true"
+                                        android:layout_toEndOf="@+id/radio_option_4"
                                         android:gravity="center"
                                         android:text="OPTION" />
 
@@ -294,7 +295,7 @@
                                         android:layout_width="30dp"
                                         android:layout_height="20dp"
                                         android:onClick="selectOption4"
-                                        android:layout_alignParentEnd="true"/>
+                                        android:layout_alignParentStart="true"/>
 
                                 </RelativeLayout>
 
@@ -317,11 +318,11 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/next_button"
-                        android:paddingStart="30dp"
-                        android:paddingEnd="30dp"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
                         android:paddingTop="10dp"
                         android:onClick="prev"
-                        android:layout_marginEnd="2dp"
+                        android:layout_marginEnd="10dp"
                         android:paddingBottom="10dp">
 
                         <TextView
@@ -339,8 +340,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/next_button"
-                        android:paddingStart="30dp"
-                        android:paddingEnd="30dp"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
                         android:paddingTop="10dp"
                         android:onClick="next"
                         android:paddingBottom="10dp">
