@@ -1,6 +1,7 @@
 package team.projects.madquizapplication.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,8 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import team.projects.madquizapplication.Models.ModelQuizData;
+import team.projects.madquizapplication.Quiz.OldScoreActivity;
+import team.projects.madquizapplication.Quiz.QuizDetailsActivity;
 import team.projects.madquizapplication.R;
 
 public class AdapterOldQuiz extends RecyclerView.Adapter<AdapterOldQuiz.ViewHolder> {
@@ -85,9 +88,11 @@ public class AdapterOldQuiz extends RecyclerView.Adapter<AdapterOldQuiz.ViewHold
                 }
                 if (attempted) {
                     Toast.makeText(ctx, "Attempted", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(ctx, "Not Attempted", Toast.LENGTH_SHORT).show();
                 }
+                Intent intent = new Intent(ctx, OldScoreActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("QUIZID", quizData.get(position).getQuizId());
+                ctx.startActivity(intent);
             });
         }
     }
