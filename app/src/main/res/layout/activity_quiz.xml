@@ -235,6 +235,7 @@
                                         android:layout_alignParentEnd="true"
                                         android:layout_toEndOf="@+id/radio_option_2"
                                         android:gravity="center"
+                                        android:textColor="@color/black"
                                         android:text="OPTION" />
 
                                     <RadioButton
