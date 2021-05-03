@@ -17,6 +17,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,6 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import team.projects.madquizapplication.Adapter.AdapterOldQuiz;
 import team.projects.madquizapplication.Admin.ManageQuizActivity;
 import team.projects.madquizapplication.CommonData.CommonData;
@@ -51,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
     LinearLayout adminViewLayout;
 
+    CircleImageView userIcon;
+
     boolean isAdmin = false;
 
     @Override
@@ -59,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         auth = FirebaseAuth.getInstance();
+        userIcon=findViewById(R.id.userIcon);
         if(auth.getCurrentUser()==null){
             startActivity(new Intent(this, LoginActivity.class));
             finish();
@@ -157,6 +162,9 @@ public class MainActivity extends AppCompatActivity {
         }else{
             findViewById(R.id.admin_view_layout).setVisibility(View.GONE);
             isAdmin = false;
+        }
+        if (!user.getImage().equalsIgnoreCase("default")){
+            Glide.with(this).load(user.getImage()).into(userIcon);
         }
         CommonData.userData = user;
     }

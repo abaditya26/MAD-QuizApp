@@ -161,6 +161,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Question Text Will Go Here. Sample Text to be replaced using java"
                                 android:textSize="20sp"
+                                android:textColor="@color/black"
                                 android:justificationMode="inter_word"
 
                                 />
@@ -210,6 +211,7 @@
                                         android:layout_alignParentEnd="true"
                                         android:layout_toEndOf="@+id/radio_option_1"
                                         android:gravity="center"
+                                        android:textColor="@color/black"
                                         android:text="OPTION" />
 
                                 </RelativeLayout>
@@ -258,6 +260,7 @@
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_alignParentEnd="true"
+                                        android:textColor="@color/black"
                                         android:layout_toEndOf="@+id/radio_option_3"
                                         android:gravity="center"
                                         android:text="OPTION" />
@@ -285,6 +288,7 @@
                                         android:id="@+id/quiz_option4"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
+                                        android:textColor="@color/black"
                                         android:layout_alignParentEnd="true"
                                         android:layout_toEndOf="@+id/radio_option_4"
                                         android:gravity="center"
